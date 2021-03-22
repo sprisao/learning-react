@@ -1,17 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDom from "react-dom";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+// CSS
+import "./index.css";
+import { books } from "./books";
+import SpecialBook from "./Book";
+import { greeting } from "./testing/testing";
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// Setup vars
+
+function BookList() {
+  console.log(greeting);
+  return (
+    <section className="booklist">
+      {books.map((book) => {
+        return <SpecialBook key={book.id} {...book}></SpecialBook>;
+      })}
+    </section>
+  );
+}
+
+ReactDom.render(<BookList />, document.getElementById("root"));
