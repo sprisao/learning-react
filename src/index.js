@@ -1,23 +1,19 @@
-import React from "react";
-import ReactDom from "react-dom";
+import React from 'react';
+import ReactDom from 'react-dom';
+import './index.css';
 
-// CSS
-import "./index.css";
-import { books } from "./books";
-import SpecialBook from "./Book";
-import { greeting } from "./testing/testing";
-
-// Setup vars
+// Nested Components, React Tools
+import { data } from './books';
+import Book from './Book';
 
 function BookList() {
-  console.log(greeting);
   return (
-    <section className="booklist">
-      {books.map((book) => {
-        return <SpecialBook key={book.id} {...book}></SpecialBook>;
+    <section className='booklist'>
+      {data.map((book, index) => {
+        return <Book key={book.id} {...book}></Book>;
       })}
     </section>
   );
 }
 
-ReactDom.render(<BookList />, document.getElementById("root"));
+ReactDom.render(<BookList />, document.getElementById('root'));
